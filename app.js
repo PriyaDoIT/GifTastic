@@ -46,6 +46,7 @@ $(document).ready(function() {
 
   //Function when an animal button is clicked
   $(document).on("click", ".btn", function() {
+    $("#animals-view").empty();
     // Grabbing and storing the data-animal property value from the button
     var selected = $(this).attr("data-animal");
 
@@ -68,7 +69,7 @@ $(document).ready(function() {
         // Looping through each result item
         for (var i = 0; i < results.length; i++) {
           // Creating and storing a div tag
-          var animalDiv = $("<div>");
+          var animalDiv = $("<div class= animal>");
 
           // Creating a paragraph tag with the result item's rating
           var p = $("<p>").text("Rating: " + results[i].rating);
@@ -93,9 +94,9 @@ $(document).ready(function() {
           $("#animals-view").prepend(animalDiv);
         }
       });
-    $(document).on("click", "img", function() {
-   
 
+      //still vs animate function
+    $(document).on("click", "img", function() {
       // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
       var state = $(this).attr("data-state");
       // If the clicked image's state is still, update its src attribute to what its data-animate value is.

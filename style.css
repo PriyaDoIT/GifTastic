@@ -7,3 +7,7 @@ body{
     margin-right:50px;
 }
 
+.animal{
+    float: left;
+    margin: 10px;
+}
