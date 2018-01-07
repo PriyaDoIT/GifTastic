@@ -11,7 +11,7 @@ $(document).ready(function() {
       // Then dynamicaly generating buttons for each animal in the array.
       var a = $("<button>");
       // Adding a class
-      a.addClass("btn btn-success");
+      a.addClass("btn-animal btn btn-success");
       // Adding a data-attribute with a value of the animal at index i
       a.attr("data-animal", animals[i]);
       // Providing the button's text with a value of the animal at index i
@@ -45,7 +45,7 @@ $(document).ready(function() {
   });
 
   //Function when an animal button is clicked
-  $(document).on("click", ".btn", function() {
+  $(document).on("click", ".btn-animal", function() {
     $("#animals-view").empty();
     // Grabbing and storing the data-animal property value from the button
     var selected = $(this).attr("data-animal");
@@ -95,23 +95,23 @@ $(document).ready(function() {
         }
       });
 
-      //still vs animate function
-    $(document).on("click", "img", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }
-    });
+      
   });
-
+//still vs animate function
+$(document).on("click", "img", function() {
+  // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+  var state = $(this).attr("data-state");
+  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+  // Then, set the image's data-state to animate
+  // Else set src to the data-still value
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+});
   // Calling the renderButtons function at least once to display the initial list of animals
   renderButtons();
 });
